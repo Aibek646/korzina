@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
+// import {} from 'react-bootstrap';
 
 class Navbar extends Component {
     render() {
         return (
-            <div>
-                <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <a className="navbar-brand" href="#">Navbar</a>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                            <a className="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                            <a className="nav-item nav-link" href="#">Features</a>
-                            <a className="nav-item nav-link" href="#">Pricing</a>
-                            <a className="nav-item nav-link disabled" href="#">Disabled</a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <a href="/" className="navbar-brand">Korzina</a>
+                <button className="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarMenu">
+                        <ul className="navbar-nav ml-auto">
+                            <li className="nav-item">
+                                <a href="/" className="nav-link">Home</a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="/men" className="nav-link">Men</a>
+                            </li>
+                            <li className="nav-item">
+                                <a href="/login" className="nav-link">Sign in</a>
+                            </li>
+                        </ul>
+                </div>
+            </nav>
         );
     }
 }

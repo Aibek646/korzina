@@ -11,12 +11,15 @@ import noMatch from './components/noMatch'
 function App() {
   return (
   <React.Fragment>
+    <Navbar/>
       <Router>
          <Switch>
+           
             <Route exact path='/' component={Home}/>
             <Route path='/men' component={Men}/>
             <Route path='/login' component={Login}/>
             <Route component={noMatch}/>
+            
          </Switch>
       </Router>
   </React.Fragment>
