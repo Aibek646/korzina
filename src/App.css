@@ -1,16 +1,16 @@
-/* #polo {
+ /* #polo {
    width: 18rem;
-}
-
-#my-row {
-    justify-content: center;
 } */
 
-/* .my-row {
-    border: 1px solid red;
-}
+ /* #my-row {
+    justify-content: center;
+} 
 
-.my-col1 {
+.my-row {
+    border: 1px solid red;
+} */
+
+/* .my-col1 {
      border: 1px solid black;
 }
 
@@ -20,9 +20,28 @@
 
 .my-col3 {
      border: 1px solid red;
-} */
+}  */
 
 .firstpic {
     width: 17rem;
 }
 
+.first-div {
+    margin-top: 25px;
+}
+
+.my-row {
+    margin-top: 25px;
+    
+}
+
+.main-text {
+    font-family: LeJeuneDeck-Regular,times new roman,Times,serif;
+    font-size: 25px;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.second-text {
+    margin-top: 10px;
+}

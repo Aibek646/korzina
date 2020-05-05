@@ -30,22 +30,62 @@ class Men extends Component {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="first-div">
-                        <h1>T-shirts</h1>
+                        <h1 className="main-text">Men's T-shirts</h1>
                     </div>
                     
                 </div>
                 <div className="row my-row justify-content-between">
                     <div className="col-2 my-col1">
                         <img src="/images/picture1.webp" className="firstpic"></img>
+                        <div className="row target-row mt-4">
+                            <div className="col">
+                                description
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col">
+                                $$$
+                            </div>
+                        </div>
                     </div>
                     <div className="col-2 my-col2">
                         <img src="/images/picture2.jpeg" className="firstpic"></img>
+                        <div className="row target-row mt-4">
+                            <div className="col">
+                                description
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col">
+                                $$$
+                            </div>
+                        </div>
                     </div>
                     <div className="col-2 my-col3">
                         <img src="/images/picture3.webp" className="firstpic"></img>
+                        <div className="row target-row mt-4">
+                            <div className="col">
+                                description
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col">
+                                $$$
+                            </div>
+                        </div>
                     </div>
                     <div className="col-2 my-col3">
                         <img src="/images/picture4.jpeg" className="firstpic"></img>
+                        <div className="row target-row mt-4">
+                            <div className="col">
+                                description
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col">
+                                $$$
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

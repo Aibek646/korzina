@@ -7,6 +7,8 @@ import Home from './components/Home'
 import Men from './components/Men'
 import Login from './components/Login'
 import noMatch from './components/noMatch'
+import RegisterModal from './components/RegisterModal'
+import Registration from './components/Registration'
 
 function App() {
   return (
@@ -17,7 +19,8 @@ function App() {
            
             <Route exact path='/' component={Home}/>
             <Route path='/men' component={Men}/>
-            <Route path='/login' component={Login}/>
+            {/* <Route path='/signin' component={RegisterModal}/> */}
+            <Route path='/register' component={Registration}/>
             <Route component={noMatch}/>
             
          </Switch>
