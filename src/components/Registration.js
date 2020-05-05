@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios'
+import UserModel from '../models/user'
 
 class Registration extends Component {
 
@@ -11,7 +13,19 @@ class Registration extends Component {
 
    handleSubmit = (event) => {
        event.preventDefault()
-       
+
+       const user = {
+           username: this.state.username,
+           password: this.state.password,
+       }
+
+       UserModel.create(this.state)
+       .then(res => {
+           console.log(res);
+           console.log(res.data)
+       })
+       .catch((err) => console.log(err))
+
    }
 
 
@@ -25,24 +39,24 @@ handleChange = (event) => {
         return (
             <div className="container mt-5" id="registcontainer">
                 <div className="row justify-content-center">
-            <form onSubmit="">    
+            <form onSubmit={this.handleSubmit}>    
                 <div class="form-group row">
                         <div className="col-xs-3">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value={this.state.username} onChange={this.handleChange} name="username"/>
+                    <label for="exampleInputEmail1">Username</label>
+                    <input type="text" className="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter username" value={this.state.username} onChange={this.handleChange} name="username"/>
                         <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                        </div>
                   </div>
                     <div class="form-group row">
                         <div className="col-xs-4">
                         <label for="exampleInputPassword1">Password</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange}/>
+                                <input type="password" className="form-control" id="password" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange}/>
                         </div>
                     </div>
                         <div class="form-group row">
                             <div className="col-xs-4">
                                 <label for="exampleInputPassword1">Confirm Password</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" value={this.state.password2} name="password2" onChange={this.handleChange}/>
+                                <input type="password" className="form-control" id="password2" placeholder="Password" value={this.state.password2} name="password2" onChange={this.handleChange}/>
                             </div>
                         </div>
                         <button type="submit" className="btn btn-light btn-sm">Register</button>
