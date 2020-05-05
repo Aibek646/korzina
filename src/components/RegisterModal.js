@@ -26,17 +26,18 @@ class Register extends Component {
         .then((res) => {
             console.log(res)
             console.log(res.data)
+            this.props.setCurrentUser(res.data.data)
             this.props.history.push('/profile')
         })
         .catch((err) => console.log(err))
-    }
+    }  
 
 
 
 
     render() {
         return (
-            <div>
+            
                 <Modal size="sm"
                     show={this.props.appear}
                     // onHide={() => setSmShow(false)}
@@ -62,13 +63,13 @@ class Register extends Component {
                                 <input type="text" id="password" name="password" value={this.state.password} onChange={this.handleChange}></input>
                             </div>
                             <br></br>
-                            <button type="button" className="btn btn-light btn-sm">Login</button>
+                            <button type="submit" className="btn btn-light btn-sm">Login</button>
                       </form>
                         <a href="/register" className="nav-link">Create an account</a>
                         
                    </Modal.Body>
                 </Modal>
-            </div>
+            
         );
     }
 }

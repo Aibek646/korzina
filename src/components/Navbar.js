@@ -46,7 +46,7 @@ class Navbar extends Component {
                 <div className="collapse navbar-collapse" id="navbarMenu">
                         <ul className="navbar-nav ml-auto">
                             
-                            
+
                             <li className="nav-item">
                                 <a href="/" className="nav-link">Home</a>
                             </li>
@@ -57,7 +57,7 @@ class Navbar extends Component {
                                 <a href="/profile" className="nav-link">Profile</a>
                             </li>
                             <li className="nav-item">
-                                <a href="/signout" className="nav-link">Sign out</a>
+                                <a href="/signout" className="nav-link" onClick={this.props.logout}>Sign out</a>
                             </li>
 
 

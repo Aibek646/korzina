@@ -11,7 +11,14 @@ export default class UserModel {
 
     static login(credentials) {
         console.log(credentials)
-        let request = axios.post(`${REACT_APP_API_URL}/auth/login`, credentials)
+        let request = axios.post(`${REACT_APP_API_URL}/auth/login`, credentials, {
+            withCredentials: true,
+        })
+        return request
+    }
+
+    static logout() {
+        let request = axios.delete(`${REACT_APP_API_URL}/auth/logout`, {withCredentials : true})
         return request
     }
 }
