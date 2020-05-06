@@ -45,3 +45,20 @@
 .second-text {
     margin-top: 10px;
 }
+
+
+#profileId {
+    width: 9rem;
+    border-radius: 10px;
+    
+}
+
+
+#profileContainer {
+    margin-top: 3%;
+}
+
+
+#main-column {
+    border: 1px solid red;
+}
