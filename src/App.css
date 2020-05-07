@@ -59,6 +59,12 @@
 }
 
 
-#main-column {
+/* #main-column {
     border: 1px solid red;
+} */
+
+#second-column {
+    /* border: 1px solid green; */
+    text-align: center;
+
 }

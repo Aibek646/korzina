@@ -39,6 +39,16 @@ class Profile extends Component {
                             </div>
                         </div>
                     </div>
+                     
+                    <div className="col-xs-12 col-sm-6 col-md-6" id="second-column">
+                        <h4><a href="#">My Orders</a></h4>
+                    </div>
+
+
+
+
+
+
                 </div>
             </div>
         );

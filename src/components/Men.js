@@ -1,32 +1,33 @@
 import React, { Component } from 'react';
+import ItemModel from '../models/item'
 
 
 class Men extends Component {
+      
+    state = {
+        items: [],
+        isLoaded: false,
+
+    }
+
+ 
+    componentDidMount = () => {
+        ItemModel.view()
+            .then((res) => {
+                console.log('Items in Mount', res)
+                this.setState({
+                    items: res.data,
+                    isLoaded: true
+                })
+                console.log(this.state.items)
+            })
+
+    }
+
+
     render() {
+        console.log('render')
         return (
-            // <div className="card-group">
-            //     <div className="card">
-            //         <img className="card-img-top" src="/images/download.jpeg" alt="Card image cap" id="polo"/> 
-            //         <div className="card-body" id="my-row">
-            //         <h5 className="card-title text-muted">Card title</h5>
-            //          <small className="text-muted">Last updated 3 mins ago</small>
-            //     </div>
-            //     </div>
-            //     <div className="card">
-            //         <img className="card-img-top" src="/images/download.jpeg" alt="Card image cap" id="polo" />
-            //         <div className="card-body">
-            //             <h5 className="card-title text-muted">Card title</h5>
-            //             <small className="text-muted">Last updated 3 mins ago</small>
-            //         </div>
-            //     </div>
-            //     <div className="card">
-            //         <img className="card-img-top" src="/images/download.jpeg" alt="Card image cap" id="polo" />
-            //         <div className="card-body">
-            //             <h5 className="card-title text-muted">Card title</h5>
-            //             <small className="text-muted">Last updated 3 mins ago</small>
-            //         </div>
-            //     </div>
-            // </div>
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="first-div">
@@ -34,60 +35,35 @@ class Men extends Component {
                     </div>
                     
                 </div>
+                
+                {
+                    this.state.isLoaded ?
+
                 <div className="row my-row justify-content-between">
-                    <div className="col-2 my-col1">
-                        <img src="/images/picture1.webp" className="firstpic"></img>
-                        <div className="row target-row mt-4">
-                            <div className="col">
-                                description
+                    {  this.state.items.map(function (item, index) {
+                        return <div className="col-2 my-col3">
+                            <img src={item.image} className="firstpic"></img>
+                            <div className="row target-row mt-4">
+                                <div className="col">
+                                    {item.description}
                             </div>
-                        </div>
-                        <div className="row">
-                            <div className="col">
-                                $$$
                             </div>
-                        </div>
-                    </div>
-                    <div className="col-2 my-col2">
-                        <img src="/images/picture2.jpeg" className="firstpic"></img>
-                        <div className="row target-row mt-4">
-                            <div className="col">
-                                description
+                            <div className="row">
+                                <div className="col">
+                                    {item.price}
                             </div>
-                        </div>
-                        <div className="row">
-                            <div className="col">
-                                $$$
                             </div>
-                        </div>
-                    </div>
-                    <div className="col-2 my-col3">
-                        <img src="/images/picture3.webp" className="firstpic"></img>
-                        <div className="row target-row mt-4">
-                            <div className="col">
-                                description
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col">
-                                $$$
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-2 my-col3">
-                        <img src="/images/picture4.jpeg" className="firstpic"></img>
-                        <div className="row target-row mt-4">
-                            <div className="col">
-                                description
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col">
-                                $$$
-                            </div>
-                        </div>
-                    </div>
+                        </div> 
+                    }) 
+
+                      } 
+
                 </div>
+
+                : 
+                <p>Not Loaded</p>
+
+              }
             </div>
         );
     }
