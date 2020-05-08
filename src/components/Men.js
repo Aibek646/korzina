@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ItemModel from '../models/item'
+import { Link, NavLink } from 'react-router-dom'
 
 
 class Men extends Component {
@@ -42,8 +43,13 @@ class Men extends Component {
                 <div className="row my-row justify-content-between">
                     {  this.state.items.map(function (item, index) {
                         return <div className="col-2 my-col3">
-                            <img src={item.image} className="firstpic"></img>
+                            <Link to={{pathname:`/items/itemshow/${item._id}`}}><img src={item.image} className="firstpic"></img></Link>
                             <div className="row target-row mt-4">
+                                <div className="col">
+                                    {item.name}
+                            </div>
+                            </div>
+                            <div className="row">
                                 <div className="col">
                                     {item.description}
                             </div>
@@ -51,7 +57,7 @@ class Men extends Component {
                             <div className="row">
                                 <div className="col">
                                     {item.price}
-                            </div>
+                                </div>
                             </div>
                         </div> 
                     }) 

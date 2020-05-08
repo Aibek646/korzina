@@ -6,6 +6,7 @@ import Men from '../components/Men'
 import Registration from '../components/Registration'
 import noMatch from '../components/noMatch'
 import RegisterModal from '../components/RegisterModal'
+import ItemShow from '../components/ItemShow'
 
 
 export default (props) => (
@@ -22,6 +23,7 @@ export default (props) => (
                     {/* <Route path='/signin' component={RegisterModal}/> */}
 
         <Route path='/register' component={Registration} />
+        <Route path='/items/itemshow/:id' component={ItemShow}/>
         <Route component={noMatch} />
 
     </Switch>

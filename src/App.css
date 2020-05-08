@@ -68,3 +68,43 @@
     text-align: center;
 
 }
+
+#itemshow1{
+   border: solid 1px red;
+}
+
+#itemshow2{
+   border: solid 1px greenyellow;
+   padding-top: 50px;
+   padding-left: 80px;
+}
+
+#fetchImage {
+    width: 30rem;
+    padding-left: 80px;
+}
+
+#comments {
+    margin-top: 40px;
+    border: solid 1px rebeccapurple;
+    padding-left: 90px;
+}
+
+#small {
+    margin-top: 50px;
+    border: red solid 1px;
+}
+
+#addbag {
+    margin-top: 10%;
+}
+
+
+.btn-circle.btn-md{
+     width: 30px; 
+            height: 30px; 
+            padding: 6px 0px; 
+            border-radius: 15px; 
+            font-size: 8px; 
+            text-align: center; 
+}
