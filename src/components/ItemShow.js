@@ -81,11 +81,11 @@ class ItemShow extends Component {
 
         console.log(this.props)
         return (
-            <div className="container">
+            <div className="container common">
                 <div className="row mt-4">
                     {isLoaded}
                 </div>
-               <Comment/>
+               <Comment itemId={this.props.match.params.id} userId={this.props.currentUser}/>
             </div>
         );
     }

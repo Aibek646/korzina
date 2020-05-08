@@ -23,7 +23,10 @@ export default (props) => (
                     {/* <Route path='/signin' component={RegisterModal}/> */}
 
         <Route path='/register' component={Registration} />
-        <Route path='/items/itemshow/:id' component={ItemShow}/>
+        <Route path='/items/itemshow/:id' render={(routeProps) => {
+            return <ItemShow {...routeProps} 
+            currentUser={props.currentUser}/>
+        }}/>
         <Route component={noMatch} />
 
     </Switch>

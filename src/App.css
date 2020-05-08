@@ -86,7 +86,8 @@
 
 #comments {
     margin-top: 40px;
-    border: solid 1px rebeccapurple;
+    margin-bottom: 10px;
+    /* border: solid 1px rebeccapurple; */
     padding-left: 90px;
 }
 
@@ -122,6 +123,7 @@
             text-align: center; 
             background-color: blue;
             margin-top: 15px;
+            margin-right: 10px;
 }
 
 
@@ -134,6 +136,54 @@
             text-align: center; 
             background-color:red;
             margin-top: 15px;
+            margin-right: 10px;
 }
 
 
+
+
+#text-target {
+    border: red solid 1px;
+    padding-left: 8%;
+}
+
+
+#commentsubmit {
+
+            width: 60px; 
+            height: 40px; 
+            padding: 6px 0px; 
+           
+            font-size: 15px; 
+            text-align: center; 
+            background-color: thistle;
+            
+            margin-top: 50px;
+            margin-left: 25px;
+}
+
+#commentsection  {
+    margin-top: 10px;
+    padding-left: 100px;
+    border: solid 1px green;
+  
+}
+
+#shirt {
+   color:#4e4f52;
+    font-family: "Libre Baskerville", serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 45px;
+    text-shadow: 0 1px 1px #fff;
+}
+
+
+.common{
+     color:#595c61;
+    font-family: "Libre Baskerville", serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    text-shadow: 0 1px 1px #fff;
+}
