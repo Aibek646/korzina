@@ -8,6 +8,7 @@ class Comment extends Component {
        content: '',
        comments: [],
        isLoaded: false,
+       commentId : '',
     }
 
     handleChange = (event) => {
@@ -53,23 +54,36 @@ class Comment extends Component {
     }
 
 
+
+    handleDelete = (event) => {
+        const itemId = this.props.itemId
+        const commentId = event.target.getAttribute("id")
+         console.log(event.target.getAttribute("id"));
+        axios.delete(`http://localhost:3001/api/v1/items/all/showitem/${itemId}/${commentId}`)
+          .then(res => {
+              console.log(res, 'delete comment')
+          })
+          .catch(err => console.log(err))
+    }
+
+
     render() {
 
-        // console.log(this.state.comments)
+        console.log(this.state.comments)
         
-        // const comments = this.state.comments;
+        const comments = this.state.comments;
 
-        // const comment = comments.map(item => {
-        // return <p id="shirt">{item.content}</p>
-        // })
+        const comment = comments.map(item => {
+            return <p key={item._id} id="shirt">{item.content}<button id={item._id} className="btn btn-danger btn-sm delete-comment" type="button" onClick={this.handleDelete}>Delete</button></p>
+        })
 
-        // const nest = this.state.comments ? (
-        //     <>
-        //        {comment}
-        //     </>
-        // ) : (
-        //     <div>Loading...</div>
-        // )
+        const nest = this.state.comments ? (
+            <>
+               {comment}
+            </>
+        ) : (
+            <div>Loading...</div>
+        )
 
 
 
@@ -90,16 +104,20 @@ class Comment extends Component {
                <div className="row" id="commentsection">
                    {/* <Review newId={this.props.itemId}/> */}
                     <div>
-                        {
+                        {/* {
                             this.state.isLoaded ?
                                 <>
                                     {this.state.comments.map(function (item, index) {
-                                        return <p id="shirt">{item.content}</p>
+                           
+                                        return <p id="shirt">{item.content}</p> 
+                                        
                                     })}
                                 </>
                                 :
                                 <div>loading...</div>
-                        }
+                        } */}
+                        {nest}
+
                     </div>
                </div>
             </>
