@@ -47,7 +47,7 @@ class App extends Component {
     return (
           <React.Fragment>
             <Navbar logout={this.logout} setCurrentUser={this.setCurrentUser} currentUser={this.state.currentUser} history={this.props.history}/>
-            <Routes currentUser={this.state.currentUser}/>
+            <Routes currentUser={this.state.currentUser} history={this.props.history}/>
           </React.Fragment>
   
   );

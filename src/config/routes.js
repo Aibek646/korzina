@@ -25,7 +25,8 @@ export default (props) => (
         <Route path='/register' component={Registration} />
         <Route path='/items/itemshow/:id' render={(routeProps) => {
             return <ItemShow {...routeProps} 
-            currentUser={props.currentUser}/>
+            currentUser={props.currentUser} 
+            history={props.history}/>
         }}/>
         <Route component={noMatch} />
 

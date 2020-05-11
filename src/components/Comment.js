@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Review from './Review'
+import EditModal from '../components/EditModal'
 
 class Comment extends Component {
    
     state = {
-       content: '',
        comments: [],
        isLoaded: false,
-       commentId : '',
+       editModal: false,
+       content: '',
+
     }
 
     handleChange = (event) => {
@@ -55,16 +57,36 @@ class Comment extends Component {
 
 
 
-    handleDelete = (event) => {
+
+     handleDelete = (event) => {
+         event.preventDefault()
         const itemId = this.props.itemId
         const commentId = event.target.getAttribute("id")
          console.log(event.target.getAttribute("id"));
-        axios.delete(`http://localhost:3001/api/v1/items/all/showitem/${itemId}/${commentId}`)
+        const comment = document.getElementById("shirt")
+        comment.remove()
+
+       axios.delete(`http://localhost:3001/api/v1/items/all/showitem/${itemId}/${commentId}`)
           .then(res => {
-              console.log(res, 'delete comment')
+              console.log(res, 'deleted comment')
           })
           .catch(err => console.log(err))
+      
     }
+
+    handleEditModal = () => {
+        this.setState({
+            editModal: true,
+        })
+    }
+
+
+    // handleUpdate = (event) => {
+    //     event.preventDefault()
+    //     const itemId = this.props.itemId
+    //     const commentId = event.target.getAttribute("id")
+    //     console.log(commentId)
+    // }
 
 
     render() {
@@ -74,7 +96,12 @@ class Comment extends Component {
         const comments = this.state.comments;
 
         const comment = comments.map(item => {
-            return <p key={item._id} id="shirt">{item.content}<button id={item._id} className="btn btn-danger btn-sm delete-comment" type="button" onClick={this.handleDelete}>Delete</button></p>
+            return ( <div>
+            <p  id="shirt">{item.content}<button id={item._id} className="btn btn-danger btn-sm delete-comment" type="button" onClick={this.handleDelete}>Delete</button> <button id={item._id} type="button" onClick={this.handleEditModal}>Edit</button></p>
+                <EditModal editModal={this.state.editModal} commentId={item._id} itemId={this.props.itemId} history={this.props.history} />
+            </div>
+            
+            )
         })
 
         const nest = this.state.comments ? (
@@ -96,7 +123,8 @@ class Comment extends Component {
                 <form  onSubmit={this.handleSubmit}  className="row" id="text-target">
                     <div className="form-group">
                         <label for="exampleFormControlTextarea1" className="common">Leave a comment</label>
-                        <textarea onChange={this.handleChange} value={this.state.value}  className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea onChange={this.handleChange} value={this.state.content}  className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        
                     </div>
                     
                     <button type="submit" className="btn btn-light btn-sm" id="commentsubmit">Submit</button>
@@ -117,8 +145,10 @@ class Comment extends Component {
                                 <div>loading...</div>
                         } */}
                         {nest}
+                    
 
                     </div>
+                    
                </div>
             </>
         );

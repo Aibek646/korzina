@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ItemModel from '../models/item'
 import Comment from '../components/Comment'
 
+
 class ItemShow extends Component {
      
     state = {
@@ -49,6 +50,7 @@ class ItemShow extends Component {
     }
 
 
+
     render() {
 
         const image = this.state.defaulColor ? (<img src={this.state.image} id="fetchImage"></img>) : (
@@ -69,8 +71,8 @@ class ItemShow extends Component {
                <br></br>
                <button  onClick={this.changeColor2} className="btn btn-light btn-circle btn-md" id={this.state.color}></button>
                <button  onClick={this.changeColor} className="btn btn-light btn-circle btn-md" id={this.state.color2}></button>
-
-               {/* <button className="btn btn-light" id="addbag">ADD TO BAG</button> */}
+               <br></br>
+               <button type="submit" className="btn btn-light" id="addbag">ADD TO BAG</button>
            </div>
            </>
        ) : (
@@ -79,13 +81,13 @@ class ItemShow extends Component {
 
 
 
-        console.log(this.props)
+        console.log(this.props.history)
         return (
             <div className="container common">
                 <div className="row mt-4">
                     {isLoaded}
                 </div>
-               <Comment itemId={this.props.match.params.id} userId={this.props.currentUser}/>
+               <Comment itemId={this.props.match.params.id} userId={this.props.currentUser} history={this.props.history}/>
             </div>
         );
     }
